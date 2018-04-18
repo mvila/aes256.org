@@ -17,14 +17,16 @@ export class Root extends React.Component {
   };
 
   encrypt() {
-    let result = GibberishAES.enc(this.state.input, this.state.password);
-    result = result.replace(/\n/g, '');
-    this.setState({input: result});
+    const {input: data, password} = this.state;
+    let encryptedData = GibberishAES.enc(data, password);
+    encryptedData = encryptedData.replace(/\n/g, '');
+    this.setState({input: encryptedData});
   }
 
   decrypt() {
-    const result = GibberishAES.dec(this.state.input, this.state.password);
-    this.setState({input: result});
+    const {input: encryptedData, password} = this.state;
+    const data = GibberishAES.dec(encryptedData, password);
+    this.setState({input: data});
   }
 
   render() {
@@ -50,7 +52,7 @@ export class Root extends React.Component {
             }
           }}
         >
-          Offline AES 256 encryption
+          AES 256 (CBC) offline encryption
         </h5>
         <div
           style={{
@@ -72,6 +74,7 @@ export class Root extends React.Component {
               rsLarge
               autoFocus
               style={{width: '100%', height: '320px'}}
+              data-gramm_editor="false"
             />
           </div>
           <div style={{marginBottom: '1.4rem'}}>
@@ -105,8 +108,19 @@ export class Root extends React.Component {
               Decrypt
             </Button>
           </div>
+          <div style={{marginTop: '3rem'}}>
+            <p>You can achieve the same thing using OpenSSL in the command line:</p>
+            <ul>
+              <li>
+                Encrypt: <code>echo "text" | openssl aes-256-cbc -base64</code>
+              </li>
+              <li>
+                Decrypt: <code>echo "encryptedText" | openssl aes-256-cbc -d -a</code>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div style={{marginTop: '3.5rem', textAlign: 'center'}}>
+        <div style={{marginTop: '3.5rem', marginBottom: '1rem', textAlign: 'center'}}>
           <a href="https://github.com/mvila/aes256.org">
             <img
               src="/images/github-mark-dark-mode-v1.immutable.svg"
