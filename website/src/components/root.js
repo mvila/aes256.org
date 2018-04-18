@@ -126,8 +126,8 @@ export class Root extends React.Component {
               src="/images/github-mark-dark-mode-v1.immutable.svg"
               alt="GitHub repository"
               style={{
-                width: '32.579px',
-                height: '31.775px'
+                width: '26px',
+                height: '25.358px'
               }}
             />
           </a>
