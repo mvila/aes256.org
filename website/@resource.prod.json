@@ -1,0 +1,32 @@
+{
+  "@load": "./@resource.json",
+  "domainName": "aes256.org",
+  "contentDirectory": "./builds/prod",
+  "bundler": {
+    "output": "./dist/bundle.prod.js",
+    "reinstallDependencies": true,
+    "minify": true
+  },
+  "copier": {
+    "destinationDirectory": "./builds/prod",
+    "clearDestination": true,
+    "files": [
+      {
+        "source": "./index.html",
+        "replacements": {
+          "${REACT_URL}": "https://unpkg.com/react@16.3.2/umd/react.production.min.js",
+          "${REACT_DOM_URL}": "https://unpkg.com/react-dom@16.3.2/umd/react-dom.production.min.js",
+          "${GOOGLE_ANALYTICS_TRACKING_ID}": "UA-XXXXXXXX-X"
+        }
+      },
+      {
+        "source": "./dist/bundle.prod.js",
+        "destination": "./bundle.js"
+      },
+      "./images"
+    ]
+  },
+  "freezer": {
+    "sourceDirectory": "./builds/prod"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+vendor
+@resource*.json
+*.json5
+_old
+_drafts
