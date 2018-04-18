@@ -16,7 +16,7 @@
         "replacements": {
           "${REACT_URL}": "https://unpkg.com/react@16.3.2/umd/react.production.min.js",
           "${REACT_DOM_URL}": "https://unpkg.com/react-dom@16.3.2/umd/react-dom.production.min.js",
-          "${GOOGLE_ANALYTICS_TRACKING_ID}": "UA-XXXXXXXX-X"
+          "${GOOGLE_ANALYTICS_TRACKING_ID}": "UA-73103232-3"
         }
       },
       {

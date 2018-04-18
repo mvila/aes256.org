@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GOOGLE_ANALYTICS_TRACKING_ID}');
+    </script>
     <meta charset="utf-8">
     <title>aes256.org</title>
     <meta name="description" content="AES 256 (CBC) offline encryption">
