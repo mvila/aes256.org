@@ -108,14 +108,20 @@ export class Root extends React.Component {
               Decrypt
             </Button>
           </div>
-          <div style={{marginTop: '3rem'}}>
+          <div style={{marginTop: '3rem', fontSize: '.85rem'}}>
             <p>You can achieve the same thing using OpenSSL in the command line:</p>
-            <ul>
+            <ul style={{paddingLeft: '17px'}}>
               <li>
-                Encrypt: <code>echo "text" | openssl aes-256-cbc -base64</code>
+                Encrypt:{' '}
+                <code style={{fontSize: '.75rem'}}>
+                  echo "text" | openssl aes-256-cbc -base64 -A -md md5
+                </code>
               </li>
               <li>
-                Decrypt: <code>echo "encryptedText" | openssl aes-256-cbc -d -a</code>
+                Decrypt:{' '}
+                <code style={{fontSize: '.75rem'}}>
+                  echo "encryptedText" | openssl aes-256-cbc -d -base64 -A -md md5
+                </code>
               </li>
             </ul>
           </div>
